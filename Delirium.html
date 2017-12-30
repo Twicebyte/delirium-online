@@ -147,6 +147,7 @@ transition-property: opacity 1s;
 </style>
 <script>
 var bb = 0;
+var cc = 1;
 
 var cards = [
 "Я",
@@ -283,6 +284,7 @@ shuffle(cards);
 
 function descript() {
 	bb=1;
+	cc=0;
 	var start = Date.now(); // сохранить время начала
 	var timer = setInterval(function() {
 	// вычислить сколько времени прошло с начала анимации
@@ -301,6 +303,7 @@ function descript() {
 	if (timePassed1 >= 400) {
     clearInterval(timer1); // конец через 2 секунды
 	document.getElementById("card3").style.transform = "rotateY(0deg)";
+	cc=1;
     return;
 	}
 	}, 20);
@@ -311,6 +314,7 @@ function descript() {
 	}
 function undescript()
 	{
+	cc=0;
 	bb=0;
 	var start = Date.now(); // сохранить время начала
 	var timer = setInterval(function() {
@@ -331,6 +335,7 @@ function undescript()
 	if (timePassed1 >= 400) {
     clearInterval(timer1); // конец через 2 секунды
 	document.getElementById("card2").style.transform = "rotateY(0deg)";
+	cc=1;
     return;
 	}
 	}, 20);
@@ -374,7 +379,7 @@ if (bb == 1) {undescript();
 }
 	
 function next_card() {
-	
+	cc=0;
 	if (i<cards.length-1) {
 	i = i+1;
 	
@@ -415,7 +420,8 @@ function next_card() {
 	document.getElementById("card").style.opacity = 0.0;
 	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
 	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-    return;
+    cc=1;
+	return;
 	}
 	}, 20);
 	
@@ -465,6 +471,7 @@ function next_card() {
     document.getElementById("card").style.opacity = 0.0;
 	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
 	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+	cc=1;
 	return;
 	}
 	}, 20);
@@ -473,6 +480,7 @@ function next_card() {
 	}
 }
 function prev_card() {
+	cc=0;
 	if (i>0) {
 	i = i-1;
 	
@@ -515,6 +523,7 @@ function prev_card() {
     document.getElementById("card").style.opacity = 0.0;
 	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
 	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+	cc=1;
 	return;
 	}
 	}, 20);
@@ -568,6 +577,7 @@ function prev_card() {
     document.getElementById("card").style.opacity = 0.0;
 	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
 	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+	cc=1;
 	return;
 	}
 	}, 20);
@@ -578,7 +588,7 @@ function prev_card() {
 }
 </script>
 </head>
-<body onkeyup="if(event.keyCode==32) {pre_next();}; if(event.keyCode==8) {pre_prev();}; if(event.keyCode==16) {if(bb==1){undescript();}else{descript();}}">
+<body onkeyup="if (cc==1){if(event.keyCode==32) {pre_next();}; if(event.keyCode==8) {pre_prev();}; if(event.keyCode==16) {if(bb==1){undescript();}else{descript();}}}">
 <div class="container">
 <div class="card" id="card">
 <table class="card">
@@ -596,7 +606,7 @@ function prev_card() {
 <div class="card" id="card2">
 <table class="card">
 <tr><td>
-<span class="card" id="card_ques2" onclick="descript();">?</span>
+<span class="card" id="card_ques2" onclick="if(cc==1){descript();}">?</span>
 </td></tr>
 <tr class="card" onclick="pre_next();"><td class="card">
 <hr color="white" width="80%"></hr>
@@ -610,7 +620,7 @@ function prev_card() {
 <div class="card" id="card3">
 <table class="card">
 <tr><td>
-<span class="card" id="card_ques3" onclick="undescript();">?</span>
+<span class="card" id="card_ques3" onclick="if(cc==1){undescript();}">?</span>
 </td></tr>
 <tr class="card" onclick="pre_next();"><td class="card">
 <hr color="white" width="80%"></hr>
