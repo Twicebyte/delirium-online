@@ -281,6 +281,7 @@
 			"Назови слово; по очереди называйте уже названные слова и еще одно, на ту же букву, связанных в предложение; кто не сможет - пьет",
 			"На твои вопросы больше нельзя отвечать; кто ответит - пьет; можно снять картой Смени правило"];
 		</script>
+
 <!-- Script initialization -->
 		<script>
 //Initialization
@@ -708,6 +709,44 @@
 				}
 			}, 20);
 		</script>
+<!-- Page initialization -->
+		<script>
+//Visual default constants
+			var _page_title = 'Делириум ONLINE';
+			var _page_description = 'Делириум ONLINE - карточная игра для веселой компании';
+			var _page_back_color = '#444444';
+			var _face_card_title = 'Делириум ONLINE';
+			var _face_card_underline = 'Twicelab';
+			var _face_card_description = 
+									'Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>
+									По вопросам обращайтесь по адресу twicelab@gmail.com<br>
+									Shift - оборот<br>
+									Space - далее<br>
+									Backspace - назад';
+			var _face_card_back_color = '#ffffff';
+			var _face_card_fore_color = '#000000';
+			var _card_about_symbol = '?';
+			var _card_back_color = '#000000';
+			var _card_fore_color = '#ffffff';
+			var _hr_color = '#ffffff';
+			
+//Timing default constants
+			var _fps = 20;
+			var _fade_duration = 1500;
+			var _spin_duration = 400;
+			var _slide_duration = 400;
+			var _face_slide_duration = 800;
+			
+//Setting initial values
+			document.getElementById("sub_upper").innerHTML = _card_about_symbol;
+			document.getElementById("main_upper").innerHTML = _card_about_symbol;
+			document.getElementById("desc_upper").innerHTML = _card_about_symbol;
+			document.getElementById("sub_text").innerHTML = _face_card_title;
+			document.getElementById("main_text").innerHTML = _face_card_title;
+			document.getElementById("desc_text").innerHTML = _face_card_description;
+			document.getElementById("sub_lower").innerHTML = _face_card_underline;
+			document.getElementById("main_lower").innerHTML = _face_card_underline;
 
+		</script>
 	</body>
 </html>
