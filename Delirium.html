@@ -8,145 +8,151 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 		<style>
-body{
-overflow:hidden;
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-text-align: center;
-background-color: #444;
-font-family: 'Fira Sans Condensed', sans-serif;
-}
-div.container {
-text-align: center;
-background-color: #444;
-font-family: 'Fira Sans Condensed', sans-serif;
-width: 100%;
-height: 100%;
-}
-div.container:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-div.card {
-background-color: #ffffff;
-border-radius: 10px;
-width: 30em;
-height: 40em;
-position: absolute;
-display: inline-block;
-vertical-align: middle;
-text-align: center;
-top: 50%;
-left: 50%;
-margin-left: -15em;
-margin-top: -20em;
-}
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    div.card {
-    width: 20em;
-	height: 30em;
-	margin-left: -10em;
-	margin-top: -15em;
-    }
-}
+			body{
+				overflow:hidden;
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Safari */
+				-khtml-user-select: none; /* Konqueror HTML */
+				-moz-user-select: none; /* Firefox */
+				-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+				text-align: center;
+				background-color: #444;
+				font-family: 'Fira Sans Condensed', sans-serif;
+			}
 
-#card_num,#card_num2 {
-color: #000000;
-font-size: 1.5em;
-display: inline-block;
-vertical-align: middle;
-margin: 10%;
-font-family: 'Scada', sans-serif;
-text-align: center;
-word-break: normal;
-}
+			div.container {
+				text-align: center;
+				background-color: #444;
+				font-family: 'Fira Sans Condensed', sans-serif;
+				width: 100%;
+				height: 100%;
+			}
 
-#card_text,#card_text2,#card_text3 {
-color: #000000;
-display: inline-block;
-vertical-align: middle;
-margin: 10%;
-font-family: 'Scada', sans-serif;
-text-align: center;
-word-break: normal;
-}
+			div.container:before {
+				content: '';
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
 
-#card_text,#card_text2 {
-font-size: 3em;
-}
+			div.card {
+				background-color: #ffffff;
+				border-radius: 10px;
+				width: 30em;
+				height: 40em;
+				position: absolute;
+				display: inline-block;
+				vertical-align: middle;
+				text-align: center;
+				top: 50%;
+				left: 50%;
+				margin-left: -15em;
+				margin-top: -20em;
+			}
+			@media only screen and (max-width: 768px) { /* For mobile phones: */
+				div.card {
+					width: 20em;
+					height: 30em;
+					margin-left: -10em;
+					margin-top: -15em;
+				}
+			}
 
-#card_text3 {
-font-size: 1.5em;
-}
-#card{
-opacity: 0.0;
-}
-#card2{
-opacity: 1.0;
-box-shadow: 0px 0px 20px rgba(0,0,0,1);
-}
-#card3{
-transform: rotateY(90deg);
-opacity: 0.0;
-box-shadow: 0px 0px 20px rgba(0,0,0,1);
-}
+			#card_num,#card_num2 {
+				color: #000000;
+				font-size: 1.5em;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 10%;
+				font-family: 'Scada', sans-serif;
+				text-align: center;
+				word-break: normal;
+			}
+		
+			#card_text,#card_text2,#card_text3 {
+				color: #000000;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 10%;
+				font-family: 'Scada', sans-serif;
+				text-align: center;
+				word-break: normal;
+			}
+	
+			#card_text,#card_text2 {
+				font-size: 3em;
+			}
+		
+			#card_text3 {
+				font-size: 1.5em;
+			}
+			
+			#card{
+				opacity: 0.0;
+			}
+			
+			#card2{
+				opacity: 1.0;
+				box-shadow: 0px 0px 20px rgba(0,0,0,1);
+			}
 
-#card_ques,#card_ques2,#card_ques3 {
-color: #000;
-font-size: 2em;
-display: inline-block;
-vertical-align: middle;
-margin: 10%;
-font-family: 'Scada', sans-serif;
-text-align: center;
-word-break: normal;
-}
+			#card3{
+				transform: rotateY(90deg);
+				opacity: 0.0;
+				box-shadow: 0px 0px 20px rgba(0,0,0,1);
+			}
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    span.card {
-	font-size: 2em;
-    }
-}
-table.card {
-  height:100%;
-  width:100%;
-  text-align: center;
-}
-tr.card {
-  height:100%;
-  width:100%;
-  text-align: center;
-}
-td.card {
-  height:100%;
-  width:100%;
-  vertical-align: middle;
-  text-align: center;
-}
-hr.card {
-color: white;
-margin: 10%;
-}
+			#card_ques,#card_ques2,#card_ques3 {
+				color: #000;
+				font-size: 2em;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 10%;
+				font-family: 'Scada', sans-serif;
+				text-align: center;
+				word-break: normal;
+			}
+			@media only screen and (max-width: 768px) { /* For mobile phones: */
+				span.card {
+					font-size: 2em;
+				}
+			}
 
-#drape {
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-color: black;
-opacity: 1.0;
-transition-property: opacity 1s;
-}
+			table.card {
+				height:100%;
+				width:100%;
+				text-align: center;
+			}
+			
+			tr.card {
+				height:100%;
+				width:100%;
+				text-align: center;
+			}
+			
+			td.card {
+				height:100%;
+				width:100%;
+				vertical-align: middle;
+				text-align: center;
+			}
+
+			hr.card {
+				color: white;
+				margin: 10%;
+			}
+
+			#drape {
+				position:absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+				background-color: black;
+				opacity: 1.0;
+				transition-property: opacity 1s;
+			}
 		</style>
 		<script>
 			var cards = [
