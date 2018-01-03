@@ -1,660 +1,707 @@
-<html>
-<head>
-<title>Делириум ONLINE</title>
-<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed|Scada" rel="stylesheet">
-<link rel="icon" type="image/ico" href="favicon.ico" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-<script>
-	document.title = "Делириум ONLINE";
-	(function() {
-    	var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-    	link.type = 'image/x-icon';
-    	link.rel = 'shortcut icon';
-    	link.href = 'https://twicebyte.github.io/delirium-online/favicon.ico';
-    	document.getElementsByTagName('head')[0].appendChild(link);
-})();
-</script>
-<style>
-body{
-overflow:hidden;
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-text-align: center;
-background-color: #444;
-font-family: 'Fira Sans Condensed', sans-serif;
-}
-div.container {
-text-align: center;
-background-color: #444;
-font-family: 'Fira Sans Condensed', sans-serif;
-width: 100%;
-height: 100%;
-}
-div.container:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-div.card {
-background-color: #ffffff;
-border-radius: 10px;
-width: 30em;
-height: 40em;
-position: absolute;
-display: inline-block;
-vertical-align: middle;
-text-align: center;
-top: 50%;
-left: 50%;
-margin-left: -15em;
-margin-top: -20em;
-}
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    div.card {
-    width: 20em;
-	height: 30em;
-	margin-left: -10em;
-	margin-top: -15em;
-    }
-}
+﻿<html>
+	<head>
+<!-- Page title -->
+		<title>Делириум ONLINE</title>
+		<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed|Scada" rel="stylesheet">
+<!-- Do not forget to check icon -->
+		<link rel="icon" type="image/ico" href="favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<!-- Stylesheet -->
+		<style>
+			body{
+				overflow:hidden;
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Safari */
+				-khtml-user-select: none; /* Konqueror HTML */
+				-moz-user-select: none; /* Firefox */
+				-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+				text-align: center;
+				background-color: #444;
+				font-family: 'Fira Sans Condensed', sans-serif;
+			}
 
-#card_num,#card_num2 {
-color: #000000;
-font-size: 1.5em;
-display: inline-block;
-vertical-align: middle;
-margin: 10%;
-font-family: 'Scada', sans-serif;
-text-align: center;
-word-break: normal;
-}
+			div.container {
+				text-align: center;
+				background-color: #444;
+				font-family: 'Fira Sans Condensed', sans-serif;
+				width: 100%;
+				height: 100%;
+			}
 
-#card_text,#card_text2,#card_text3 {
-color: #000000;
-display: inline-block;
-vertical-align: middle;
-margin: 10%;
-font-family: 'Scada', sans-serif;
-text-align: center;
-word-break: normal;
-}
+			div.container:before {
+				content: '';
+				display: inline-block;
+				height: 100%;
+				vertical-align: middle;
+			}
 
-#card_text,#card_text2 {
-font-size: 3em;
-}
+			div.card {
+				background-color: #ffffff;
+				border-radius: 10px;
+				width: 30em;
+				height: 40em;
+				position: absolute;
+				display: inline-block;
+				vertical-align: middle;
+				text-align: center;
+				top: 50%;
+				left: 50%;
+				margin-left: -15em;
+				margin-top: -20em;
+			}
+			@media only screen and (max-width: 768px) { /* For mobile phones: */
+				div.card {
+					width: 20em;
+					height: 30em;
+					margin-left: -10em;
+					margin-top: -15em;
+				}
+			}
 
-#card_text3 {
-font-size: 1.5em;
-}
-#card{
-opacity: 0.0;
-}
-#card2{
-opacity: 1.0;
-box-shadow: 0px 0px 20px rgba(0,0,0,1);
-}
-#card3{
-transform: rotateY(90deg);
-opacity: 0.0;
-box-shadow: 0px 0px 20px rgba(0,0,0,1);
-}
+			#card_num,#card_num2 {
+				color: #000000;
+				font-size: 1.5em;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 10%;
+				font-family: 'Scada', sans-serif;
+				text-align: center;
+				word-break: normal;
+			}
+		
+			#card_text,#card_text2,#card_text3 {
+				color: #000000;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 10%;
+				font-family: 'Scada', sans-serif;
+				text-align: center;
+				word-break: normal;
+			}
+	
+			#card_text,#card_text2 {
+				font-size: 3em;
+			}
+		
+			#card_text3 {
+				font-size: 1.5em;
+			}
+			
+			#card{
+				opacity: 0.0;
+			}
+			
+			#card2{
+				opacity: 1.0;
+				box-shadow: 0px 0px 20px rgba(0,0,0,1);
+			}
 
-#card_ques,#card_ques2,#card_ques3 {
-color: #000;
-font-size: 2em;
-display: inline-block;
-vertical-align: middle;
-margin: 10%;
-font-family: 'Scada', sans-serif;
-text-align: center;
-word-break: normal;
-}
+			#card3{
+				transform: rotateY(90deg);
+				opacity: 0.0;
+				box-shadow: 0px 0px 20px rgba(0,0,0,1);
+			}
 
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    span.card {
-	font-size: 2em;
-    }
-}
-table.card {
-  height:100%;
-  width:100%;
-  text-align: center;
-}
-tr.card {
-  height:100%;
-  width:100%;
-  text-align: center;
-}
-td.card {
-  height:100%;
-  width:100%;
-  vertical-align: middle;
-  text-align: center;
-}
-hr.card {
-color: white;
-margin: 10%;
-}
+			#card_ques,#card_ques2,#card_ques3 {
+				color: #000;
+				font-size: 2em;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 10%;
+				font-family: 'Scada', sans-serif;
+				text-align: center;
+				word-break: normal;
+			}
+			@media only screen and (max-width: 768px) { /* For mobile phones: */
+				span.card {
+					font-size: 2em;
+				}
+			}
 
-#drape {
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background-color: black;
-opacity: 1.0;
-transition-property: opacity 1s;
-}
-</style>
-<script>
-var bb = 0;
-var cc = 1;
+			table.card {
+				height:100%;
+				width:100%;
+				text-align: center;
+			}
+			
+			tr.card {
+				height:100%;
+				width:100%;
+				text-align: center;
+			}
+			
+			td.card {
+				height:100%;
+				width:100%;
+				vertical-align: middle;
+				text-align: center;
+			}
 
-var cards = [
-"Я",
-"Я",
-"Я",
-"Ты",
-"Ты",
-"Ты",
-"Мужчины",
-"Мужчины",
-"Мужчины",
-"Женщины",
-"Женщины",
-"Женщины",
-"Тост",
-"Тост",
-"Передай налево",
-"Передай направо",
-"Вызов",
-"Все на пол",
-"Прозвище",
-"Свои правила",
-"Свои правила",
-"Свои правила",
-"Секретный агент",
-"Раздень друга",
-"Раздень друга",
-"Раздень друга",
-"Раздень друга",
-"Брудершафт",
-"Брудершафт",
-"Шах и Мат",
-"Попробуй повтори",
-"Попробуй повтори",
-"Правда или выпивка",
-"Правда или выпивка",
-"Правда или выпивка",
-"Правда или выпивка",
-"Поменяйся местами",
-"Пьяная переписка",
-"Пьяная переписка",
-"Нос",
-"Поменяйся одеждой",
-"Поменяйся одеждой",
-"Категория",
-"Я никогда не",
-"Я никогда не",
-"Я никогда не",
-"Я никогда не",
-"Цвет",
-"Кубок",
-"Кубок",
-"Кубок",
-"Кубок",
-"Саймон говорит",
-"Аллитерация",
-"Товарищ"];
-</script>
-<script>
-var cards_descs = [
-"Пей",
-"Пей",
-"Пей",
-"Выбери того, кто пьет",
-"Выбери того, кто пьет",
-"Выбери того, кто пьет",
-"Мужчины пьют",
-"Мужчины пьют",
-"Мужчины пьют",
-"Женщины пьют",
-"Женщины пьют",
-"Женщины пьют",
-"Произнеси тост; все пьют",
-"Произнеси тост; все пьют",
-"Сидящий слева от тянувшего карту пьет",
-"Сидящий справа от тянувшего карту пьет",
-"Выбери человека; пейте вдвоем",
-"Все должены коснуться пола; последний пьет",
-"Придумай прозвище человеку; назвавший его иначе пьет",
-"Отмени кастомное правило; придумай новое",
-"Отмени кастомное правило; придумай новое",
-"Отмени кастомное правило; придумай новое",
-"Все прикладывают ладонь к уху; последний пьет",
-"Выбери кто снимет одежду; все выбирают что",
-"Выбери кто снимет одежду; все выбирают что",
-"Выбери кто снимет одежду; все выбирают что",
-"Выбери кто снимет одежду; все выбирают что",
-"Выбери с кем пить на брудершафт",
-"Выбери с кем пить на брудершафт",
-"Выбери человека; каждый раз как ты пьешь он пьет",
-"Выбери человека; скажи предложение; повторит - пьешь, нет - пьет",
-"Выбери человека; скажи предложение; повторит - пьешь, нет - пьет",
-"Каждый может задать тебе вопрос; отвечай или пей",
-"Каждый может задать тебе вопрос; отвечай или пей",
-"Каждый может задать тебе вопрос; отвечай или пей",
-"Каждый может задать тебе вопрос; отвечай или пей",
-"Все меняются местами",
-"Выбери человека; напиши с его телефона случайному человеку",
-"Выбери человека; напиши с его телефона случайному человеку",
-"Все касаются носа; последний пьет",
-"Поменяйся одеждой с человеком слева",
-"Поменяйся одеждой с человеком слева",
-"Назови категорию; по очереди называйте объекты из категории; кто не сможет - пьет",
-"Скажи что ты никогда не делал; тот кто делал - пьет",
-"Скажи что ты никогда не делал; тот кто делал - пьет",
-"Скажи что ты никогда не делал; тот кто делал - пьет",
-"Скажи что ты никогда не делал; тот кто делал - пьет",
-"Назови цвет; по очереди называйте уже названные цвета и еще один; кто не сможет - пьет",
-"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
-"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
-"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
-"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
-"Сделай жест; по очереди показывайте уже показанные жесты и еще один; кто не сможет - пьет",
-"Назови слово; по очереди называйте уже названные слова и еще одно, на ту же букву, связанных в предложение; кто не сможет - пьет",
-"На твои вопросы больше нельзя отвечать; кто ответит - пьет; можно снять картой Смени правило"];
-</script>
-<script>
-var i=-1;
+			hr.card {
+				color: white;
+				margin: 10%;
+			}
 
-function shuffle(a) {
-    var j, x, i;
-    for (i = cards.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = a[i];
-        a[i] = a[j];
-        a[j] = x;
-		x = cards_descs[i];
-        cards_descs[i] = cards_descs[j];
-        cards_descs[j] = x;
-    }
-}
+			#drape {
+				position:absolute;
+				top:0;
+				left:0;
+				width:100%;
+				height:100%;
+				background-color: black;
+				opacity: 1.0;
+				transition-property: opacity 1s;
+			}
+		</style>
+<!-- Cards initialization -->
+		<script>
+//Card names 
+			var cards = [
+			"Я",
+			"Я",
+			"Я",
+			"Ты",
+			"Ты",
+			"Ты",
+			"Мужчины",
+			"Мужчины",
+			"Мужчины",
+			"Женщины",
+			"Женщины",
+			"Женщины",
+			"Тост",
+			"Тост",
+			"Передай налево",
+			"Передай направо",
+			"Вызов",
+			"Все на пол",
+			"Прозвище",
+			"Свои правила",
+			"Свои правила",
+			"Свои правила",
+			"Секретный агент",
+			"Раздень друга",
+			"Раздень друга",
+			"Раздень друга",
+			"Раздень друга",
+			"Брудершафт",
+			"Брудершафт",
+			"Шах и Мат",
+			"Попробуй повтори",
+			"Попробуй повтори",
+			"Правда или выпивка",
+			"Правда или выпивка",
+			"Правда или выпивка",
+			"Правда или выпивка",
+			"Поменяйся местами",
+			"Пьяная переписка",
+			"Пьяная переписка",
+			"Нос",
+			"Поменяйся одеждой",
+			"Поменяйся одеждой",
+			"Категория",
+			"Я никогда не",
+			"Я никогда не",
+			"Я никогда не",
+			"Я никогда не",
+			"Цвет",
+			"Кубок",
+			"Кубок",
+			"Кубок",
+			"Кубок",
+			"Саймон говорит",
+			"Аллитерация",
+			"Товарищ"];
+		</script>
+<!-- Descriptions initialization -->
+		<script>
+//Card descriptions 
+			var cards_descs = [
+			"Пей",
+			"Пей",
+			"Пей",
+			"Выбери того, кто пьет",
+			"Выбери того, кто пьет",
+			"Выбери того, кто пьет",
+			"Мужчины пьют",
+			"Мужчины пьют",
+			"Мужчины пьют",
+			"Женщины пьют",
+			"Женщины пьют",
+			"Женщины пьют",
+			"Произнеси тост; все пьют",
+			"Произнеси тост; все пьют",
+			"Сидящий слева от тянувшего карту пьет",
+			"Сидящий справа от тянувшего карту пьет",
+			"Выбери человека; пейте вдвоем",
+			"Все должены коснуться пола; последний пьет",
+			"Придумай прозвище человеку; назвавший его иначе пьет",
+			"Отмени кастомное правило; придумай новое",
+			"Отмени кастомное правило; придумай новое",
+			"Отмени кастомное правило; придумай новое",
+			"Все прикладывают ладонь к уху; последний пьет",
+			"Выбери кто снимет одежду; все выбирают что",
+			"Выбери кто снимет одежду; все выбирают что",
+			"Выбери кто снимет одежду; все выбирают что",
+			"Выбери кто снимет одежду; все выбирают что",
+			"Выбери с кем пить на брудершафт",
+			"Выбери с кем пить на брудершафт",
+			"Выбери человека; каждый раз как ты пьешь он пьет",
+			"Выбери человека; скажи предложение; повторит - пьешь, нет - пьет",
+			"Выбери человека; скажи предложение; повторит - пьешь, нет - пьет",
+			"Каждый может задать тебе вопрос; отвечай или пей",
+			"Каждый может задать тебе вопрос; отвечай или пей",
+			"Каждый может задать тебе вопрос; отвечай или пей",
+			"Каждый может задать тебе вопрос; отвечай или пей",
+			"Все меняются местами",
+			"Выбери человека; напиши с его телефона случайному человеку",
+			"Выбери человека; напиши с его телефона случайному человеку",
+			"Все касаются носа; последний пьет",
+			"Поменяйся одеждой с человеком слева",
+			"Поменяйся одеждой с человеком слева",
+			"Назови категорию; по очереди называйте объекты из категории; кто не сможет - пьет",
+			"Скажи что ты никогда не делал; тот кто делал - пьет",
+			"Скажи что ты никогда не делал; тот кто делал - пьет",
+			"Скажи что ты никогда не делал; тот кто делал - пьет",
+			"Скажи что ты никогда не делал; тот кто делал - пьет",
+			"Назови цвет; по очереди называйте уже названные цвета и еще один; кто не сможет - пьет",
+			"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
+			"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
+			"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
+			"Если это четвертая карта - выпей кубок; иначе вылей свой стакан в кубок",
+			"Сделай жест; по очереди показывайте уже показанные жесты и еще один; кто не сможет - пьет",
+			"Назови слово; по очереди называйте уже названные слова и еще одно, на ту же букву, связанных в предложение; кто не сможет - пьет",
+			"На твои вопросы больше нельзя отвечать; кто ответит - пьет; можно снять картой Смени правило"];
+		</script>
+<!-- Script initialization -->
+		<script>
+//Initialization
+			var i=-1;
+			var bb = 0;
+			var cc = 1;
+			
+//Shuffle function
+			function shuffle(a) {
+				var j, x, i;
+				for (i = cards.length - 1; i > 0; i--) {
+					j = Math.floor(Math.random() * (i + 1));
+					x = a[i];
+					a[i] = a[j];
+					a[j] = x;
+					x = cards_descs[i];
+					cards_descs[i] = cards_descs[j];
+					cards_descs[j] = x;
+				}
+			}
+			
+//Initial shuffle
+			shuffle(cards);
+		</script>
+<!-- Show/hide descriptions functions -->
+		<script>
+//Show description function
+			function descript() {
+				bb=1;
+				cc=0;
+				var start = Date.now();
+				var timer = setInterval(function() {
+					var timePassed = Date.now() - start;
+					document.getElementById("card2").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
+					if (timePassed >= 400) {
+						clearInterval(timer);
+						document.getElementById("card2").style.transform = "rotateY(90deg)";
+						document.getElementById("card2").style.opacity = 0.0;
+						document.getElementById("card3").style.opacity = 1.0;
+						var start1 = Date.now();
+						var timer1 = setInterval(function() {
+							var timePassed1 = Date.now() - start1;
+							document.getElementById("card3").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
+							if (timePassed1 >= 400) {
+								clearInterval(timer1);
+								document.getElementById("card3").style.transform = "rotateY(0deg)";
+								cc=1;
+								return;
+							}
+						}, 20);
+						return;
+					}
+				}, 20);
+			}
+			
+//Hide description function
+			function undescript() {
+				cc=0;
+				bb=0;
+				var start = Date.now();
+				var timer = setInterval(function() {
+					var timePassed = Date.now() - start;
+					document.getElementById("card3").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
+					if (timePassed >= 400) {
+						clearInterval(timer);
+						document.getElementById("card3").style.transform = "rotateY(90deg)";
+						document.getElementById("card3").style.opacity = 0.0;
+						document.getElementById("card2").style.opacity = 1.0;
+						var start1 = Date.now();
+						var timer1 = setInterval(function() {
+							var timePassed1 = Date.now() - start1;
+							document.getElementById("card2").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
+							if (timePassed1 >= 400) {
+								clearInterval(timer1);
+								document.getElementById("card2").style.transform = "rotateY(0deg)";
+								cc=1;
+								return;
+							}
+						}, 20);
+						return;
+					}
+				}, 20);
+			}
+		</script>
+<!-- Next/prev page pre-check functions -->
+		<script>
+//Next page pre-check
+			function pre_next() {
+				if (bb == 1) {
+					undescript();
+					var start = Date.now();
+					var timer = setInterval(function() {
+						var timePassed = Date.now() - start;
+						if (timePassed >= 800) {
+							clearInterval(timer);
+							next_card();
+							return;
+						}
+					}, 20);
+				}
+				else {
+					next_card();
+				}
+			}
 
-shuffle(cards);
+//Previous page pre-check
+			function pre_prev() {
+				if (bb == 1) {
+					undescript();
+					var start = Date.now();
+					var timer = setInterval(function() {
+						var timePassed = Date.now() - start;
+						if (timePassed >= 800) {
+							clearInterval(timer);
+							prev_card();
+							return;
+						}
+					}, 20);
+				}
+				else {
+					prev_card();
+				}
+			}
+		</script>
+<!-- Next/prev page functions -->
+		<script>
+//Next page function
+			function next_card() {
+				cc=0;
+				if (i<cards.length-1) {
+					i = i+1;
 
-function descript() {
-	bb=1;
-	cc=0;
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed = Date.now() - start;
-	document.getElementById("card2").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
-	if (timePassed >= 400) {
-    clearInterval(timer); // конец через 2 секунды
-	document.getElementById("card2").style.transform = "rotateY(90deg)";
-	document.getElementById("card2").style.opacity = 0.0;
-	document.getElementById("card3").style.opacity = 1.0;
-	var start1 = Date.now(); // сохранить время начала
-	var timer1 = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed1 = Date.now() - start1;
-	document.getElementById("card3").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
-	if (timePassed1 >= 400) {
-    clearInterval(timer1); // конец через 2 секунды
-	document.getElementById("card3").style.transform = "rotateY(0deg)";
-	cc=1;
-    return;
-	}
-	}, 20);
-    return;
-	}
-	}, 20);
-	
-	}
-function undescript()
-	{
-	cc=0;
-	bb=0;
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed = Date.now() - start;
-	document.getElementById("card3").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
-	if (timePassed >= 400) {
-    clearInterval(timer); // конец через 2 секунды
-	document.getElementById("card3").style.transform = "rotateY(90deg)";
-	
-	document.getElementById("card3").style.opacity = 0.0;
-	document.getElementById("card2").style.opacity = 1.0;
-	var start1 = Date.now(); // сохранить время начала
-	var timer1 = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed1 = Date.now() - start1;
-	document.getElementById("card2").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
-	if (timePassed1 >= 400) {
-    clearInterval(timer1); // конец через 2 секунды
-	document.getElementById("card2").style.transform = "rotateY(0deg)";
-	cc=1;
-    return;
-	}
-	}, 20);
-    return;
-	}
-	}, 20);
-	
-	}
-	
-function pre_next() {
-if (bb == 1) {undescript();
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	var timePassed = Date.now() - start;
-	if (timePassed >= 800) {
-    clearInterval(timer);
-	next_card();
-	return;
-	}
-	}, 20);}
-	else
-	{next_card();
-	};
-}
+					document.getElementById("card").style.opacity = 1.0;
+					document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+					document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+					document.getElementById("card_text").innerHTML = cards[i];
+					document.getElementById("card_text3").innerHTML = cards_descs[i];
+					document.getElementById("card_num").innerHTML = "".concat(cards.length-i-1," Left");
+					document.getElementById("card").style.backgroundColor = "black";
+					document.getElementById("card3").style.backgroundColor = "black";
+					document.getElementById("card_text").style.color = "white";
+					document.getElementById("card_num").style.color = "white";	
+					document.getElementById("card_ques3").style.color = "white";
+					document.getElementById("card_ques2").style.color = "white";
+					document.getElementById("card_ques").style.color = "white";
+					document.getElementById("card_text3").style.color = "white";
 
+					var start = Date.now();
+					var timer = setInterval(function() {
+						var timePassed = Date.now() - start;
+						document.getElementById("card2").style.top = (50+timePassed/4)+"%";
+						document.getElementById("card2").style.transform = "rotate("+timePassed/4+"deg)";
+						if (timePassed >= 400) {
+							clearInterval(timer);
+							document.getElementById("card_text2").innerHTML = cards[i];
+							document.getElementById("card_num2").innerHTML = "".concat(cards.length-i-1," Left");
+							document.getElementById("card2").style.backgroundColor = "black";
+							document.getElementById("card_text2").style.color = "white";
+							document.getElementById("card_num2").style.color = "white";
+							document.getElementById("card2").style.transform = "rotate(0deg)";
+							document.getElementById("card2").style.top = "50%";
+							document.getElementById("card").style.opacity = 0.0;
+							document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+							document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+							cc=1;
+							return;
+						}
+					}, 20);	
+				}
+				else {
+					shuffle(cards);
+					i = -1;
 
-function pre_prev() {
-if (bb == 1) {undescript();
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	var timePassed = Date.now() - start;
-	if (timePassed >= 800) {
-    clearInterval(timer);
-	prev_card();
-	return;
-	}
-	}, 20);}
-	else
-	{prev_card();
-	};
-}
+					document.getElementById("card").style.opacity = 1.0;
+					document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+					document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+					document.getElementById("card2").style.transform = "rotate(250deg)";
+					document.getElementById("card2").style.top = "300%";	
+					document.getElementById("card_text3").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
+					document.getElementById("card_text2").innerHTML = "Делириум<br>ONLINE";
+					document.getElementById("card_num2").innerHTML = "Twicelab";
+					document.getElementById("card2").style.backgroundColor = "white";
+					document.getElementById("card3").style.backgroundColor = "white";
+					document.getElementById("card_text2").style.color = "black";
+					document.getElementById("card_text3").style.color = "black";
+					document.getElementById("card_num2").style.color = "black";
+					document.getElementById("card_ques3").style.color = "black";
+					document.getElementById("card_ques2").style.color = "black";
+					document.getElementById("card_ques").style.color = "white";
+					
+					var start = Date.now();
+					var timer = setInterval(function() {
+						var timePassed = Date.now() - start;
+						document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
+						document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
+						if (timePassed >= 400) {
+							clearInterval(timer);
+			
+							document.getElementById("card_text").innerHTML = "Делириум<br>ONLINE";
+							document.getElementById("card_num").innerHTML = "Twicelab";
+							document.getElementById("card").style.backgroundColor = "white";
+							document.getElementById("card_text").style.color = "black";
+							document.getElementById("card_num").style.color = "black";
+							document.getElementById("card2").style.transform = "rotate(0deg)";
+							document.getElementById("card2").style.top = "50%";
+							document.getElementById("card").style.opacity = 0.0;
+							document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+							document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+					
+							cc=1;
+							return;
+						}
+					}, 20);	
+				}
+			}
+			
+//Previous page function
+			function prev_card() {
+				cc=0;
+				if (i>0) {
+					i = i-1;
+		
+					document.getElementById("card").style.opacity = 1.0;
+					document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+					document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+					document.getElementById("card2").style.transform = "rotate(250deg)";
+					document.getElementById("card2").style.top = "300%";
+					document.getElementById("card_text2").innerHTML = cards[i];
+					document.getElementById("card_text3").innerHTML = cards_descs[i];
+					document.getElementById("card_num2").innerHTML = "".concat(cards.length-i-1," Left");
+					document.getElementById("card2").style.backgroundColor = "black";
+					document.getElementById("card3").style.backgroundColor = "black";
+					document.getElementById("card_text2").style.color = "white";
+					document.getElementById("card_text3").style.color = "white";
+					document.getElementById("card_num2").style.color = "white";
+					document.getElementById("card_ques3").style.color = "white";
+					document.getElementById("card_ques2").style.color = "white";
+					document.getElementById("card_ques").style.color = "white";
 	
-function next_card() {
-	cc=0;
-	if (i<cards.length-1) {
-	i = i+1;
+					var start = Date.now();
+					var timer = setInterval(function() {
+						var timePassed = Date.now() - start;
+						document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
+						document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
+						if (timePassed >= 400) {
+							clearInterval(timer);
+							
+							document.getElementById("card_text").innerHTML = cards[i];
+							document.getElementById("card_num").innerHTML = "".concat(cards.length-i-1," Left");
+							document.getElementById("card").style.backgroundColor = "black";
+							document.getElementById("card_text").style.color = "white";
+							document.getElementById("card_num").style.color = "white";	
+							document.getElementById("card2").style.transform = "rotate(0deg)";
+							document.getElementById("card2").style.top = "50%";
+							document.getElementById("card").style.opacity = 0.0;
+							document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+							document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+							
+							cc=1;
+							return;
+						}
+					}, 20);	
+				}
+				else {
+					if (i>-1) {
+						shuffle(cards);
+						i = -1;
 	
-	document.getElementById("card").style.opacity = 1.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	
-	document.getElementById("card_text").innerHTML = cards[i];
-	document.getElementById("card_text3").innerHTML = cards_descs[i];
-	document.getElementById("card_num").innerHTML = "".concat(cards.length-i-1," Left");
-	document.getElementById("card").style.backgroundColor = "black";
-	document.getElementById("card3").style.backgroundColor = "black";
-	document.getElementById("card_text").style.color = "white";
-	document.getElementById("card_num").style.color = "white";	
-	document.getElementById("card_ques3").style.color = "white";
-	document.getElementById("card_ques2").style.color = "white";
-	document.getElementById("card_ques").style.color = "white";
-	document.getElementById("card_text3").style.color = "white";
-	
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed = Date.now() - start;
-	document.getElementById("card2").style.top = (50+timePassed/4)+"%";
-	document.getElementById("card2").style.transform = "rotate("+timePassed/4+"deg)";
-	if (timePassed >= 400) {
-    clearInterval(timer); // конец через 2 секунды
-	document.getElementById("card_text2").innerHTML = cards[i];
-	document.getElementById("card_num2").innerHTML = "".concat(cards.length-i-1," Left");
-	document.getElementById("card2").style.backgroundColor = "black";
-	document.getElementById("card_text2").style.color = "white";
-	document.getElementById("card_num2").style.color = "white";
-	
-	
-	document.getElementById("card2").style.transform = "rotate(0deg)";
-	document.getElementById("card2").style.top = "50%";
-	
-	document.getElementById("card").style.opacity = 0.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-    cc=1;
-	return;
-	}
-	}, 20);
-	
-	
-	}
-	else
-	{
-	shuffle(cards);
-	i = -1;
-	
-	document.getElementById("card").style.opacity = 1.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	
-	document.getElementById("card2").style.transform = "rotate(250deg)";
-	document.getElementById("card2").style.top = "300%";
-	
-	document.getElementById("card_text3").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
-	document.getElementById("card_text2").innerHTML = "Делириум<br>ONLINE";
-	document.getElementById("card_num2").innerHTML = "Twicelab";
-	document.getElementById("card2").style.backgroundColor = "white";
-	document.getElementById("card3").style.backgroundColor = "white";
-	document.getElementById("card_text2").style.color = "black";
-	document.getElementById("card_text3").style.color = "black";
-	document.getElementById("card_num2").style.color = "black";
-	document.getElementById("card_ques3").style.color = "black";
-	document.getElementById("card_ques2").style.color = "black";
-	document.getElementById("card_ques").style.color = "white";
-	
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed = Date.now() - start;
-	document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
-	document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
-	if (timePassed >= 400) {
-    clearInterval(timer); // конец через 2 секунды
-	
-	document.getElementById("card_text").innerHTML = "Делириум<br>ONLINE";
-	document.getElementById("card_num").innerHTML = "Twicelab";
-	document.getElementById("card").style.backgroundColor = "white";
-	document.getElementById("card_text").style.color = "black";
-	document.getElementById("card_num").style.color = "black";
-	
-	document.getElementById("card2").style.transform = "rotate(0deg)";
-	document.getElementById("card2").style.top = "50%";
-    document.getElementById("card").style.opacity = 0.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-	cc=1;
-	return;
-	}
-	}, 20);
-	
-	
-	}
-}
-function prev_card() {
-	cc=0;
-	if (i>0) {
-	i = i-1;
-	
-	
-	document.getElementById("card").style.opacity = 1.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	
-	document.getElementById("card2").style.transform = "rotate(250deg)";
-	document.getElementById("card2").style.top = "300%";
-	
-	document.getElementById("card_text2").innerHTML = cards[i];
-	document.getElementById("card_text3").innerHTML = cards_descs[i];
-	document.getElementById("card_num2").innerHTML = "".concat(cards.length-i-1," Left");
-	document.getElementById("card2").style.backgroundColor = "black";
-	document.getElementById("card3").style.backgroundColor = "black";
-	document.getElementById("card_text2").style.color = "white";
-	document.getElementById("card_text3").style.color = "white";
-	document.getElementById("card_num2").style.color = "white";
-	document.getElementById("card_ques3").style.color = "white";
-	document.getElementById("card_ques2").style.color = "white";
-	document.getElementById("card_ques").style.color = "white";
-	
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed = Date.now() - start;
-	document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
-	document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
-	if (timePassed >= 400) {
-    clearInterval(timer); // конец через 2 секунды
-	document.getElementById("card_text").innerHTML = cards[i];
-	document.getElementById("card_num").innerHTML = "".concat(cards.length-i-1," Left");
-	document.getElementById("card").style.backgroundColor = "black";
-	document.getElementById("card_text").style.color = "white";
-	document.getElementById("card_num").style.color = "white";
-	
-	document.getElementById("card2").style.transform = "rotate(0deg)";
-	document.getElementById("card2").style.top = "50%";
-    document.getElementById("card").style.opacity = 0.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-	cc=1;
-	return;
-	}
-	}, 20);
-	
-	
-	
-	}
-	else
-	{
-	if (i>-1)
-	{
-	shuffle(cards);
-	i = -1;
-	
-	document.getElementById("card").style.opacity = 1.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	
-	document.getElementById("card2").style.transform = "rotate(250deg)";
-	document.getElementById("card2").style.top = "300%";
-	
-	document.getElementById("card_text3").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
-	document.getElementById("card_text2").innerHTML = "Делириум<br>ONLINE";
-	document.getElementById("card_num2").innerHTML = "Twicelab";
-	document.getElementById("card2").style.backgroundColor = "white";
-	document.getElementById("card3").style.backgroundColor = "white";
-	document.getElementById("card_text2").style.color = "black";
-	document.getElementById("card_text3").style.color = "black";
-	document.getElementById("card_num2").style.color = "black";
-	document.getElementById("card_ques3").style.color = "black";
-	document.getElementById("card_ques2").style.color = "black";
-	document.getElementById("card_ques").style.color = "white";
-	
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed = Date.now() - start;
-	document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
-	document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
-	if (timePassed >= 400) {
-    clearInterval(timer); // конец через 2 секунды
-	
-	document.getElementById("card_text").innerHTML = "Делириум<br>ONLINE";
-	document.getElementById("card_num").innerHTML = "Twicelab";
-	document.getElementById("card").style.backgroundColor = "white";
-	document.getElementById("card_text").style.color = "black";
-	document.getElementById("card_num").style.color = "black";
-	
-	document.getElementById("card2").style.transform = "rotate(0deg)";
-	document.getElementById("card2").style.top = "50%";
-    document.getElementById("card").style.opacity = 0.0;
-	document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-	document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-	cc=1;
-	return;
-	}
-	}, 20);
-	
-	
-	}
-	}
-}
-</script>
-</head>
-<body onkeyup="if (cc==1){if(event.keyCode==32) {pre_next();}; if(event.keyCode==8) {pre_prev();}; if(event.keyCode==16) {if(bb==1){undescript();}else{descript();}}}">
-<div class="container">
-<div class="card" id="card">
-<table class="card">
-<tr><td>
-<span class="card" id="card_ques">?</span>
-</td></tr>
-<tr class="card"><td class="card">
-<hr color="white" width="80%"></hr>
-<span class="card" id="card_text">Делириум<br>ONLINE</span>
-<hr color="white" width="80%"></hr>
-</td></tr><tr><td>
-<span class="card" id="card_num">Twicelab</span>
-</td></tr></table>
-</div>
-<div class="card" id="card2">
-<table class="card">
-<tr><td>
-<span class="card" id="card_ques2" onclick="if(cc==1){descript();}">?</span>
-</td></tr>
-<tr class="card" onclick="pre_next();"><td class="card">
-<hr color="white" width="80%"></hr>
-<span class="card" id="card_text2">Делириум<br>ONLINE</span>
-<hr color="white" width="80%"></hr>
-</td></tr><tr><td>
-<span class="card" id="card_num2">Twicelab</span>
-</td></tr></table>
-</div>
-</div>
-<div class="card" id="card3">
-<table class="card">
-<tr><td>
-<span class="card" id="card_ques3" onclick="if(cc==1){undescript();}">?</span>
-</td></tr>
-<tr class="card" onclick="pre_next();"><td class="card">
-<hr color="white" width="80%"></hr>
-<span class="card" id="card_text3">Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад</span>
-<hr color="white" width="80%"></hr>
-</td></tr></table>
-</div>
-</div>
-<div id="drape"></div>
-<script>
-	
-	var start = Date.now(); // сохранить время начала
-	var timer = setInterval(function() {
-	// вычислить сколько времени прошло с начала анимации
-	var timePassed = Date.now() - start;
-	document.getElementById("drape").style.opacity = ((2000.0-timePassed)/1000.0);
-	if (timePassed >= 2000) {
-    clearInterval(timer); // конец через 2 секунды
-	document.getElementById("drape").style.top = "100%";
-    return;
-	}
-	}, 20);
-	
-</script>
-</body>
+						document.getElementById("card").style.opacity = 1.0;
+						document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+						document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+						document.getElementById("card2").style.transform = "rotate(250deg)";
+						document.getElementById("card2").style.top = "300%";
+						document.getElementById("card_text3").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
+						document.getElementById("card_text2").innerHTML = "Делириум<br>ONLINE";
+						document.getElementById("card_num2").innerHTML = "Twicelab";
+						document.getElementById("card2").style.backgroundColor = "white";
+						document.getElementById("card3").style.backgroundColor = "white";
+						document.getElementById("card_text2").style.color = "black";
+						document.getElementById("card_text3").style.color = "black";
+						document.getElementById("card_num2").style.color = "black";
+						document.getElementById("card_ques3").style.color = "black";
+						document.getElementById("card_ques2").style.color = "black";
+						document.getElementById("card_ques").style.color = "white";
+
+						var start = Date.now();
+						var timer = setInterval(function() {
+							var timePassed = Date.now() - start;
+							document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
+							document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
+							if (timePassed >= 400) {
+								clearInterval(timer);
+		
+								document.getElementById("card_text").innerHTML = "Делириум<br>ONLINE";
+								document.getElementById("card_num").innerHTML = "Twicelab";
+								document.getElementById("card").style.backgroundColor = "white";
+								document.getElementById("card_text").style.color = "black";
+								document.getElementById("card_num").style.color = "black";
+								document.getElementById("card2").style.transform = "rotate(0deg)";
+								document.getElementById("card2").style.top = "50%";
+								document.getElementById("card").style.opacity = 0.0;
+								document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+								document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+				
+								cc=1;
+								return;
+							}
+						}, 20);	
+					}
+				}
+			}
+		</script>
+	</head>
+<!-- Key binding -->
+	<body onkeyup="if (cc==1){if(event.keyCode==32) {pre_next();}; if(event.keyCode==8) {pre_prev();}; if(event.keyCode==16) {if(bb==1){undescript();}else{descript();}}}">
+<!-- Card container -->
+		<div class="container">
+		
+<!-- Additional static card while animating slide -->
+			<div class="card" id="card">
+				<table class="card">
+					<tr>
+						<td>
+<!-- About button-symbol -->
+							<span class="card" id="card_ques">
+								?
+							</span>
+						</td>
+					</tr>
+					<tr class="card">
+						<td class="card">
+							<hr color="white" width="80%"></hr>
+<!-- Face card title -->
+							<span class="card" id="card_text">
+								Делириум<br>
+								ONLINE
+							</span>
+							<hr color="white" width="80%"></hr>
+						</td>
+					</tr>
+					<tr>
+						<td>
+<!-- Face card underline -->
+							<span class="card" id="card_num">
+								Twicelab
+							</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+<!-- Main card -->
+			<div class="card" id="card2"> 
+				<table class="card">
+					<tr>
+						<td>
+<!-- About button-symbol -->
+							<span class="card" id="card_ques2" onclick="if(cc==1){descript();}">
+								?
+							</span> 
+						</td>
+					</tr>
+					<tr class="card" onclick="pre_next();">
+						<td class="card">
+							<hr color="white" width="80%"></hr>
+<!-- Face card title -->
+							<span class="card" id="card_text2">
+								Делириум<br>
+								ONLINE
+							</span>
+							<hr color="white" width="80%"></hr>
+						</td>
+					</tr>
+					<tr>
+						<td>
+<!-- Face card underline -->
+							<span class="card" id="card_num2">
+								Twicelab
+							</span> 
+						</td>
+					</tr>
+				</table>
+			</div>
+
+<!-- Description card -->
+			<div class="card" id="card3"> 
+				<table class="card">
+					<tr>
+						<td>
+<!-- About button-symbol -->
+							<span class="card" id="card_ques3" onclick="if(cc==1){undescript();}">
+								?
+							</span>
+						</td>
+					</tr>
+					<tr class="card" onclick="pre_next();">
+						<td class="card">
+							<hr color="white" width="80%"></hr>
+<!-- Face card description -->
+								<span class="card" id="card_text3">
+									Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>
+									По вопросам обращайтесь по адресу twicelab@gmail.com<br>
+									Shift - оборот<br>
+									Space - далее<br>
+									Backspace - назад
+								</span>
+							<hr color="white" width="80%"></hr>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+<!-- Welcome animation -->
+		<div id="drape"></div> 
+		<script>
+			var start = Date.now();
+			var timer = setInterval(function() {
+				var timePassed = Date.now() - start;
+				document.getElementById("drape").style.opacity = ((2000.0-timePassed)/1000.0);
+				if (timePassed >= 2000) {
+					clearInterval(timer);
+					document.getElementById("drape").style.top = "100%";
+					return;
+				}
+			}, 20);
+		</script>
+
+	</body>
 </html>
