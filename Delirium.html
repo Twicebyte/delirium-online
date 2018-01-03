@@ -7,6 +7,7 @@
 		<link rel="icon" type="image/ico" href="favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<!-- Stylesheet -->
 		<style>
 			body{
 				overflow:hidden;
@@ -154,7 +155,9 @@
 				transition-property: opacity 1s;
 			}
 		</style>
+<!-- Cards initialization -->
 		<script>
+//Card names 
 			var cards = [
 			"Я",
 			"Я",
@@ -212,7 +215,9 @@
 			"Аллитерация",
 			"Товарищ"];
 		</script>
+<!-- Descriptions initialization -->
 		<script>
+//Card descriptions 
 			var cards_descs = [
 			"Пей",
 			"Пей",
@@ -270,11 +275,14 @@
 			"Назови слово; по очереди называйте уже названные слова и еще одно, на ту же букву, связанных в предложение; кто не сможет - пьет",
 			"На твои вопросы больше нельзя отвечать; кто ответит - пьет; можно снять картой Смени правило"];
 		</script>
+<!-- Script initialization -->
 		<script>
+//Initialization
 			var i=-1;
 			var bb = 0;
 			var cc = 1;
-
+			
+//Shuffle function
 			function shuffle(a) {
 				var j, x, i;
 				for (i = cards.length - 1; i > 0; i--) {
@@ -287,9 +295,13 @@
 					cards_descs[j] = x;
 				}
 			}
-
+			
+//Initial shuffle
 			shuffle(cards);
-
+		</script>
+<!-- Show/hide descriptions functions -->
+		<script>
+//Show description function
 			function descript() {
 				bb=1;
 				cc=0;
@@ -318,6 +330,7 @@
 				}, 20);
 			}
 			
+//Hide description function
 			function undescript() {
 				cc=0;
 				bb=0;
@@ -345,7 +358,10 @@
 					}
 				}, 20);
 			}
-	
+		</script>
+<!-- Next/prev page pre-check functions -->
+		<script>
+//Next page pre-check
 			function pre_next() {
 				if (bb == 1) {
 					undescript();
@@ -364,6 +380,7 @@
 				}
 			}
 
+//Previous page pre-check
 			function pre_prev() {
 				if (bb == 1) {
 					undescript();
@@ -381,7 +398,10 @@
 					prev_card();
 				}
 			}
-	
+		</script>
+<!-- Next/prev page functions -->
+		<script>
+//Next page function
 			function next_card() {
 				cc=0;
 				if (i<cards.length-1) {
@@ -471,6 +491,7 @@
 				}
 			}
 			
+//Previous page function
 			function prev_card() {
 				cc=0;
 				if (i>0) {
