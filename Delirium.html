@@ -26,15 +26,11 @@
 				text-align: center;
 				background-color: #444;
 				font-family: 'Fira Sans Condensed', sans-serif;
+				height: 100%;
 				width: 100%;
-				height: 100%;
-			}
-
-			div.container:before {
-				content: '';
-				display: inline-block;
-				height: 100%;
-				vertical-align: middle;
+				position: absolute;
+				top: -20em;
+				left: -15em;
 			}
 
 			div.card {
@@ -48,76 +44,86 @@
 				text-align: center;
 				top: 50%;
 				left: 50%;
-				margin-left: -15em;
-				margin-top: -20em;
 			}
-			@media only screen and (max-width: 768px) { /* For mobile phones: */
+			
+			@media only screen and (max-width: 33em) {
 				div.card {
-					width: 20em;
-					height: 30em;
-					margin-left: -10em;
-					margin-top: -15em;
+					width: 90%;
+				}
+				div.container {
+					left: -45%;
+				}
+				span.card {
+					font-size: 2em;
 				}
 			}
+			
+			@media only screen and (max-height: 44em) {
+				div.card {
+					height: 90%;
+				}
+				div.container {
+					top: -45%;
+				}
+			}			
 
-			#card_num,#card_num2 {
-				color: #000000;
-				font-size: 1.5em;
+			span.card_upper {
+				color: #000;
+				font-size: 2em;
 				display: inline-block;
 				vertical-align: middle;
-				margin: 10%;
+				margin: 1.5em;
 				font-family: 'Scada', sans-serif;
 				text-align: center;
 				word-break: normal;
 			}
 		
-			#card_text,#card_text2,#card_text3 {
+			span.card_main {
 				color: #000000;
 				display: inline-block;
 				vertical-align: middle;
-				margin: 10%;
+				margin: 1em 1.5em;
+				font-family: 'Scada', sans-serif;
+				text-align: center;
+				word-break: normal;
+			}
+			
+			span.card_lower {
+				color: #000000;
+				font-size: 1.5em;
+				display: inline-block;
+				vertical-align: middle;
+				margin: 1.5em 1.5em;
 				font-family: 'Scada', sans-serif;
 				text-align: center;
 				word-break: normal;
 			}
 	
-			#card_text,#card_text2 {
+			#sub_text {
+				font-size: 3em;
+			}
+			
+			#main_text {
 				font-size: 3em;
 			}
 		
-			#card_text3 {
+			#desc_text {
 				font-size: 1.5em;
 			}
 			
-			#card{
+			#sub_card{
 				opacity: 0.0;
 			}
 			
-			#card2{
+			#main_card{
 				opacity: 1.0;
 				box-shadow: 0px 0px 20px rgba(0,0,0,1);
 			}
 
-			#card3{
+			#desc_card{
 				transform: rotateY(90deg);
 				opacity: 0.0;
 				box-shadow: 0px 0px 20px rgba(0,0,0,1);
-			}
-
-			#card_ques,#card_ques2,#card_ques3 {
-				color: #000;
-				font-size: 2em;
-				display: inline-block;
-				vertical-align: middle;
-				margin: 10%;
-				font-family: 'Scada', sans-serif;
-				text-align: center;
-				word-break: normal;
-			}
-			@media only screen and (max-width: 768px) { /* For mobile phones: */
-				span.card {
-					font-size: 2em;
-				}
 			}
 
 			table.card {
@@ -141,7 +147,7 @@
 
 			hr.card {
 				color: white;
-				margin: 10%;
+				margin: 2em;
 			}
 
 			#drape {
@@ -308,19 +314,19 @@
 				var start = Date.now();
 				var timer = setInterval(function() {
 					var timePassed = Date.now() - start;
-					document.getElementById("card2").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
+					document.getElementById("main_card").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
 					if (timePassed >= 400) {
 						clearInterval(timer);
-						document.getElementById("card2").style.transform = "rotateY(90deg)";
-						document.getElementById("card2").style.opacity = 0.0;
-						document.getElementById("card3").style.opacity = 1.0;
+						document.getElementById("main_card").style.transform = "rotateY(90deg)";
+						document.getElementById("main_card").style.opacity = 0.0;
+						document.getElementById("desc_card").style.opacity = 1.0;
 						var start1 = Date.now();
 						var timer1 = setInterval(function() {
 							var timePassed1 = Date.now() - start1;
-							document.getElementById("card3").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
+							document.getElementById("desc_card").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
 							if (timePassed1 >= 400) {
 								clearInterval(timer1);
-								document.getElementById("card3").style.transform = "rotateY(0deg)";
+								document.getElementById("desc_card").style.transform = "rotateY(0deg)";
 								cc=1;
 								return;
 							}
@@ -337,19 +343,19 @@
 				var start = Date.now();
 				var timer = setInterval(function() {
 					var timePassed = Date.now() - start;
-					document.getElementById("card3").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
+					document.getElementById("desc_card").style.transform = "rotateY("+(90*timePassed/400)+"deg)";
 					if (timePassed >= 400) {
 						clearInterval(timer);
-						document.getElementById("card3").style.transform = "rotateY(90deg)";
-						document.getElementById("card3").style.opacity = 0.0;
-						document.getElementById("card2").style.opacity = 1.0;
+						document.getElementById("desc_card").style.transform = "rotateY(90deg)";
+						document.getElementById("desc_card").style.opacity = 0.0;
+						document.getElementById("main_card").style.opacity = 1.0;
 						var start1 = Date.now();
 						var timer1 = setInterval(function() {
 							var timePassed1 = Date.now() - start1;
-							document.getElementById("card2").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
+							document.getElementById("main_card").style.transform = "rotateY("+(90-90*timePassed1/400)+"deg)";
 							if (timePassed1 >= 400) {
 								clearInterval(timer1);
-								document.getElementById("card2").style.transform = "rotateY(0deg)";
+								document.getElementById("main_card").style.transform = "rotateY(0deg)";
 								cc=1;
 								return;
 							}
@@ -407,38 +413,38 @@
 				if (i<cards.length-1) {
 					i = i+1;
 
-					document.getElementById("card").style.opacity = 1.0;
-					document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-					document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-					document.getElementById("card_text").innerHTML = cards[i];
-					document.getElementById("card_text3").innerHTML = cards_descs[i];
-					document.getElementById("card_num").innerHTML = "".concat(cards.length-i-1," Left");
-					document.getElementById("card").style.backgroundColor = "black";
-					document.getElementById("card3").style.backgroundColor = "black";
-					document.getElementById("card_text").style.color = "white";
-					document.getElementById("card_num").style.color = "white";	
-					document.getElementById("card_ques3").style.color = "white";
-					document.getElementById("card_ques2").style.color = "white";
-					document.getElementById("card_ques").style.color = "white";
-					document.getElementById("card_text3").style.color = "white";
+					document.getElementById("sub_card").style.opacity = 1.0;
+					document.getElementById("sub_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+					document.getElementById("main_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+					document.getElementById("sub_text").innerHTML = cards[i];
+					document.getElementById("desc_text").innerHTML = cards_descs[i];
+					document.getElementById("sub_lower").innerHTML = "".concat(cards.length-i-1," Left");
+					document.getElementById("sub_card").style.backgroundColor = "black";
+					document.getElementById("desc_card").style.backgroundColor = "black";
+					document.getElementById("sub_text").style.color = "white";
+					document.getElementById("sub_lower").style.color = "white";	
+					document.getElementById("desc_upper").style.color = "white";
+					document.getElementById("main_upper").style.color = "white";
+					document.getElementById("sub_upper").style.color = "white";
+					document.getElementById("desc_text").style.color = "white";
 
 					var start = Date.now();
 					var timer = setInterval(function() {
 						var timePassed = Date.now() - start;
-						document.getElementById("card2").style.top = (50+timePassed/4)+"%";
-						document.getElementById("card2").style.transform = "rotate("+timePassed/4+"deg)";
+						document.getElementById("main_card").style.top = (50+timePassed/4)+"%";
+						document.getElementById("main_card").style.transform = "rotate("+timePassed/4+"deg)";
 						if (timePassed >= 400) {
 							clearInterval(timer);
-							document.getElementById("card_text2").innerHTML = cards[i];
-							document.getElementById("card_num2").innerHTML = "".concat(cards.length-i-1," Left");
-							document.getElementById("card2").style.backgroundColor = "black";
-							document.getElementById("card_text2").style.color = "white";
-							document.getElementById("card_num2").style.color = "white";
-							document.getElementById("card2").style.transform = "rotate(0deg)";
-							document.getElementById("card2").style.top = "50%";
-							document.getElementById("card").style.opacity = 0.0;
-							document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-							document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+							document.getElementById("main_text").innerHTML = cards[i];
+							document.getElementById("main_lower").innerHTML = "".concat(cards.length-i-1," Left");
+							document.getElementById("main_card").style.backgroundColor = "black";
+							document.getElementById("main_text").style.color = "white";
+							document.getElementById("main_lower").style.color = "white";
+							document.getElementById("main_card").style.transform = "rotate(0deg)";
+							document.getElementById("main_card").style.top = "50%";
+							document.getElementById("sub_card").style.opacity = 0.0;
+							document.getElementById("sub_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+							document.getElementById("main_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
 							cc=1;
 							return;
 						}
@@ -448,41 +454,41 @@
 					shuffle(cards);
 					i = -1;
 
-					document.getElementById("card").style.opacity = 1.0;
-					document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-					document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-					document.getElementById("card2").style.transform = "rotate(250deg)";
-					document.getElementById("card2").style.top = "300%";	
-					document.getElementById("card_text3").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
-					document.getElementById("card_text2").innerHTML = "Делириум<br>ONLINE";
-					document.getElementById("card_num2").innerHTML = "Twicelab";
-					document.getElementById("card2").style.backgroundColor = "white";
-					document.getElementById("card3").style.backgroundColor = "white";
-					document.getElementById("card_text2").style.color = "black";
-					document.getElementById("card_text3").style.color = "black";
-					document.getElementById("card_num2").style.color = "black";
-					document.getElementById("card_ques3").style.color = "black";
-					document.getElementById("card_ques2").style.color = "black";
-					document.getElementById("card_ques").style.color = "white";
+					document.getElementById("sub_card").style.opacity = 1.0;
+					document.getElementById("sub_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+					document.getElementById("main_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+					document.getElementById("main_card").style.transform = "rotate(250deg)";
+					document.getElementById("main_card").style.top = "300%";	
+					document.getElementById("desc_text").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
+					document.getElementById("main_text").innerHTML = "Делириум<br>ONLINE";
+					document.getElementById("main_lower").innerHTML = "Twicelab";
+					document.getElementById("main_card").style.backgroundColor = "white";
+					document.getElementById("desc_card").style.backgroundColor = "white";
+					document.getElementById("main_text").style.color = "black";
+					document.getElementById("desc_text").style.color = "black";
+					document.getElementById("main_lower").style.color = "black";
+					document.getElementById("desc_upper").style.color = "black";
+					document.getElementById("main_upper").style.color = "black";
+					document.getElementById("sub_upper").style.color = "white";
 					
 					var start = Date.now();
 					var timer = setInterval(function() {
 						var timePassed = Date.now() - start;
-						document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
-						document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
+						document.getElementById("main_card").style.top = (50+(400-timePassed)/4)+"%";
+						document.getElementById("main_card").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
 						if (timePassed >= 400) {
 							clearInterval(timer);
 			
-							document.getElementById("card_text").innerHTML = "Делириум<br>ONLINE";
-							document.getElementById("card_num").innerHTML = "Twicelab";
-							document.getElementById("card").style.backgroundColor = "white";
-							document.getElementById("card_text").style.color = "black";
-							document.getElementById("card_num").style.color = "black";
-							document.getElementById("card2").style.transform = "rotate(0deg)";
-							document.getElementById("card2").style.top = "50%";
-							document.getElementById("card").style.opacity = 0.0;
-							document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-							document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+							document.getElementById("sub_text").innerHTML = "Делириум<br>ONLINE";
+							document.getElementById("sub_lower").innerHTML = "Twicelab";
+							document.getElementById("sub_card").style.backgroundColor = "white";
+							document.getElementById("sub_text").style.color = "black";
+							document.getElementById("sub_lower").style.color = "black";
+							document.getElementById("main_card").style.transform = "rotate(0deg)";
+							document.getElementById("main_card").style.top = "50%";
+							document.getElementById("sub_card").style.opacity = 0.0;
+							document.getElementById("sub_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+							document.getElementById("main_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
 					
 							cc=1;
 							return;
@@ -497,41 +503,41 @@
 				if (i>0) {
 					i = i-1;
 		
-					document.getElementById("card").style.opacity = 1.0;
-					document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-					document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-					document.getElementById("card2").style.transform = "rotate(250deg)";
-					document.getElementById("card2").style.top = "300%";
-					document.getElementById("card_text2").innerHTML = cards[i];
-					document.getElementById("card_text3").innerHTML = cards_descs[i];
-					document.getElementById("card_num2").innerHTML = "".concat(cards.length-i-1," Left");
-					document.getElementById("card2").style.backgroundColor = "black";
-					document.getElementById("card3").style.backgroundColor = "black";
-					document.getElementById("card_text2").style.color = "white";
-					document.getElementById("card_text3").style.color = "white";
-					document.getElementById("card_num2").style.color = "white";
-					document.getElementById("card_ques3").style.color = "white";
-					document.getElementById("card_ques2").style.color = "white";
-					document.getElementById("card_ques").style.color = "white";
+					document.getElementById("sub_card").style.opacity = 1.0;
+					document.getElementById("sub_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+					document.getElementById("main_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+					document.getElementById("main_card").style.transform = "rotate(250deg)";
+					document.getElementById("main_card").style.top = "300%";
+					document.getElementById("main_text").innerHTML = cards[i];
+					document.getElementById("desc_text").innerHTML = cards_descs[i];
+					document.getElementById("main_lower").innerHTML = "".concat(cards.length-i-1," Left");
+					document.getElementById("main_card").style.backgroundColor = "black";
+					document.getElementById("desc_card").style.backgroundColor = "black";
+					document.getElementById("main_text").style.color = "white";
+					document.getElementById("desc_text").style.color = "white";
+					document.getElementById("main_lower").style.color = "white";
+					document.getElementById("desc_upper").style.color = "white";
+					document.getElementById("main_upper").style.color = "white";
+					document.getElementById("sub_upper").style.color = "white";
 	
 					var start = Date.now();
 					var timer = setInterval(function() {
 						var timePassed = Date.now() - start;
-						document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
-						document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
+						document.getElementById("main_card").style.top = (50+(400-timePassed)/4)+"%";
+						document.getElementById("main_card").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
 						if (timePassed >= 400) {
 							clearInterval(timer);
 							
-							document.getElementById("card_text").innerHTML = cards[i];
-							document.getElementById("card_num").innerHTML = "".concat(cards.length-i-1," Left");
-							document.getElementById("card").style.backgroundColor = "black";
-							document.getElementById("card_text").style.color = "white";
-							document.getElementById("card_num").style.color = "white";	
-							document.getElementById("card2").style.transform = "rotate(0deg)";
-							document.getElementById("card2").style.top = "50%";
-							document.getElementById("card").style.opacity = 0.0;
-							document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-							document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+							document.getElementById("sub_text").innerHTML = cards[i];
+							document.getElementById("sub_lower").innerHTML = "".concat(cards.length-i-1," Left");
+							document.getElementById("sub_card").style.backgroundColor = "black";
+							document.getElementById("sub_text").style.color = "white";
+							document.getElementById("sub_lower").style.color = "white";	
+							document.getElementById("main_card").style.transform = "rotate(0deg)";
+							document.getElementById("main_card").style.top = "50%";
+							document.getElementById("sub_card").style.opacity = 0.0;
+							document.getElementById("sub_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+							document.getElementById("main_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
 							
 							cc=1;
 							return;
@@ -543,41 +549,41 @@
 						shuffle(cards);
 						i = -1;
 	
-						document.getElementById("card").style.opacity = 1.0;
-						document.getElementById("card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
-						document.getElementById("card2").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-						document.getElementById("card2").style.transform = "rotate(250deg)";
-						document.getElementById("card2").style.top = "300%";
-						document.getElementById("card_text3").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
-						document.getElementById("card_text2").innerHTML = "Делириум<br>ONLINE";
-						document.getElementById("card_num2").innerHTML = "Twicelab";
-						document.getElementById("card2").style.backgroundColor = "white";
-						document.getElementById("card3").style.backgroundColor = "white";
-						document.getElementById("card_text2").style.color = "black";
-						document.getElementById("card_text3").style.color = "black";
-						document.getElementById("card_num2").style.color = "black";
-						document.getElementById("card_ques3").style.color = "black";
-						document.getElementById("card_ques2").style.color = "black";
-						document.getElementById("card_ques").style.color = "white";
+						document.getElementById("sub_card").style.opacity = 1.0;
+						document.getElementById("sub_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+						document.getElementById("main_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+						document.getElementById("main_card").style.transform = "rotate(250deg)";
+						document.getElementById("main_card").style.top = "300%";
+						document.getElementById("desc_text").innerHTML = "Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>По вопросам обращайтесь по адресу twicelab@gmail.com<br>Shift - оборот<br>Space - далее<br>Backspace - назад";
+						document.getElementById("main_text").innerHTML = "Делириум<br>ONLINE";
+						document.getElementById("main_lower").innerHTML = "Twicelab";
+						document.getElementById("main_card").style.backgroundColor = "white";
+						document.getElementById("desc_card").style.backgroundColor = "white";
+						document.getElementById("main_text").style.color = "black";
+						document.getElementById("desc_text").style.color = "black";
+						document.getElementById("main_lower").style.color = "black";
+						document.getElementById("desc_upper").style.color = "black";
+						document.getElementById("main_upper").style.color = "black";
+						document.getElementById("sub_upper").style.color = "white";
 
 						var start = Date.now();
 						var timer = setInterval(function() {
 							var timePassed = Date.now() - start;
-							document.getElementById("card2").style.top = (50+(400-timePassed)/4)+"%";
-							document.getElementById("card2").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
+							document.getElementById("main_card").style.top = (50+(400-timePassed)/4)+"%";
+							document.getElementById("main_card").style.transform = "rotate("+(-400+timePassed)/4+"deg)";
 							if (timePassed >= 400) {
 								clearInterval(timer);
 		
-								document.getElementById("card_text").innerHTML = "Делириум<br>ONLINE";
-								document.getElementById("card_num").innerHTML = "Twicelab";
-								document.getElementById("card").style.backgroundColor = "white";
-								document.getElementById("card_text").style.color = "black";
-								document.getElementById("card_num").style.color = "black";
-								document.getElementById("card2").style.transform = "rotate(0deg)";
-								document.getElementById("card2").style.top = "50%";
-								document.getElementById("card").style.opacity = 0.0;
-								document.getElementById("card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
-								document.getElementById("card2").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
+								document.getElementById("sub_text").innerHTML = "Делириум<br>ONLINE";
+								document.getElementById("sub_lower").innerHTML = "Twicelab";
+								document.getElementById("sub_card").style.backgroundColor = "white";
+								document.getElementById("sub_text").style.color = "black";
+								document.getElementById("sub_lower").style.color = "black";
+								document.getElementById("main_card").style.transform = "rotate(0deg)";
+								document.getElementById("main_card").style.top = "50%";
+								document.getElementById("sub_card").style.opacity = 0.0;
+								document.getElementById("sub_card").style.boxShadow= "0px 0px 0px rgba(0,0,0,1)";
+								document.getElementById("main_card").style.boxShadow= "0px 0px 20px rgba(0,0,0,1)";
 				
 								cc=1;
 								return;
@@ -591,15 +597,15 @@
 <!-- Key binding -->
 	<body onkeyup="if (cc==1){if(event.keyCode==32) {pre_next();}; if(event.keyCode==8) {pre_prev();}; if(event.keyCode==16) {if(bb==1){undescript();}else{descript();}}}">
 <!-- Card container -->
-		<div class="container">
+		<div class="container" id="container">
 		
 <!-- Additional static card while animating slide -->
-			<div class="card" id="card">
+			<div class="card" id="sub_card">
 				<table class="card">
 					<tr>
 						<td>
 <!-- About button-symbol -->
-							<span class="card" id="card_ques">
+							<span class="card card_upper" id="sub_upper">
 								?
 							</span>
 						</td>
@@ -608,7 +614,7 @@
 						<td class="card">
 							<hr color="white" width="80%"></hr>
 <!-- Face card title -->
-							<span class="card" id="card_text">
+							<span class="card card_main" id="sub_text">
 								Делириум<br>
 								ONLINE
 							</span>
@@ -618,7 +624,7 @@
 					<tr>
 						<td>
 <!-- Face card underline -->
-							<span class="card" id="card_num">
+							<span class="card card_lower" id="sub_lower">
 								Twicelab
 							</span>
 						</td>
@@ -627,12 +633,12 @@
 			</div>
 
 <!-- Main card -->
-			<div class="card" id="card2"> 
+			<div class="card" id="main_card"> 
 				<table class="card">
 					<tr>
 						<td>
 <!-- About button-symbol -->
-							<span class="card" id="card_ques2" onclick="if(cc==1){descript();}">
+							<span class="card card_upper" id="main_upper" onclick="if(cc==1){descript();}">
 								?
 							</span> 
 						</td>
@@ -641,7 +647,7 @@
 						<td class="card">
 							<hr color="white" width="80%"></hr>
 <!-- Face card title -->
-							<span class="card" id="card_text2">
+							<span class="card card_main" id="main_text">
 								Делириум<br>
 								ONLINE
 							</span>
@@ -651,7 +657,7 @@
 					<tr>
 						<td>
 <!-- Face card underline -->
-							<span class="card" id="card_num2">
+							<span class="card card_lower" id="main_lower">
 								Twicelab
 							</span> 
 						</td>
@@ -660,12 +666,12 @@
 			</div>
 
 <!-- Description card -->
-			<div class="card" id="card3"> 
+			<div class="card" id="desc_card"> 
 				<table class="card">
 					<tr>
 						<td>
 <!-- About button-symbol -->
-							<span class="card" id="card_ques3" onclick="if(cc==1){undescript();}">
+							<span class="card card_upper" id="desc_upper" onclick="if(cc==1){undescript();}">
 								?
 							</span>
 						</td>
@@ -674,7 +680,7 @@
 						<td class="card">
 							<hr color="white" width="80%"></hr>
 <!-- Face card description -->
-								<span class="card" id="card_text3">
+								<span class="card card_main" id="desc_text">
 									Существующая реальная игра была воссоздана в электронном варианте командой Twicelab<br>
 									По вопросам обращайтесь по адресу twicelab@gmail.com<br>
 									Shift - оборот<br>
